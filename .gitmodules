@@ -1,0 +1,3 @@
+[submodule "nixos/GrubPixelCatTheme"]
+	path = nixos/GrubPixelCatTheme
+	url = git@github.com:MidoriNoHoshi/GrubPixelCatTheme.git
