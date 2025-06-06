@@ -17,14 +17,14 @@
     enable = true;
     systemdIntegration = true;
     settings = {
-      "$terminal" = "kitty";
+      "$terminal" = "kitty"; # How to get it to run cool retro term first?
       "$fileManager" = "nautilus";
       "$browser" = "brave";
       "$menu" = "fuzzel";
       "$mainMod" = "SUPER";
 
       exec-once = [
-      "$terminal"
+      "cool-retro-term"
       "hyprpaper"
       "fcitx5-remote -r"
       "fcitx5 -d --replace"
@@ -141,7 +141,7 @@
         "$mainMod, J, togglesplit, " # dwindle
         ",Print, exec, grim -g \"$(slurp)\" - | wl-copy"
         "CONTROL, Print, exec, grim -g \"$(slurp)\" ~/Pictures/Screenshots/screenshot_$(date +%Y-%m-%d_%H_%S).png"
-        ", F9, exec, ~/Scripts/battery.sh"
+        ", F9, exec, ~/Dotfiles/Scripts/battery.sh"
         "$mainMod, h, movefocus, l"
         "$mainMod, l, movefocus, r"
         "$mainMod, k, movefocus, u"
@@ -190,12 +190,12 @@
       ];
 
       bindel = [
-        ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/Scripts/volume.sh"
-        ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/Scripts/volume.sh"
-        ",XF86AudioMute,exec,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ~/Scripts/volume.sh"
+        ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/Dotfiles/Scripts/volume.sh"
+        ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/Dotfiles/Scripts/volume.sh"
+        ",XF86AudioMute,exec,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ~/Dotfiles/Scripts/volume.sh"
         ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ",XF86MonBrightnessUp,exec,brightnessctl s 10%+ && ~/Scripts/brightness.sh"
-        ",XF86MonBrightnessDown,exec,brightnessctl s 10%- && ~/Scripts/brightness.sh"
+        ",XF86MonBrightnessUp,exec,brightnessctl s 10%+ && ~/Dotfiles/Scripts/brightness.sh"
+        ",XF86MonBrightnessDown,exec,brightnessctl s 10%- && ~/Dotfiles/Scripts/brightness.sh"
         ",XF86AudioNext,exec,playerctl next"
         ",XF86AudioPause,exec,playerctl play-pause"
         ",XF86AudioPlay,exec,playerctl play-pause"
@@ -211,5 +211,6 @@
   home.file.".config/hypr/hyprpaper.conf".text = ''
 preload = ~/Desktop/-kotonoha-no-niva-sad-2606.jpg
 wallpaper = eDP-1, ~/Desktop/-kotonoha-no-niva-sad-2606.jpg
+ipc = off
     '';
 }

@@ -1,5 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
+# Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
@@ -27,24 +26,28 @@
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.loader.grub.theme = pkgs.runCommand "GrubPixelCatTheme" {
-    src = ./GrubPixelCatTheme;
-  } ''
+  # boot.loader.grub.theme = pkgs.runCommand "GrubPixelCatTheme" {
+  #   src = ./GrubPixelCatTheme;
+  # } ''
+  #   mkdir -p $out
+  #   cp -r $src/* $out
+  # '';
+    
+  boot.loader.grub.theme = pkgs.stdenv.mkDerivation {
+    pname = "grubTheme";
+    version = "1.0";
+    src = pkgs.fetchFromGitHub {
+      owner = "MidoriNoHoshi";
+      repo = "GrubPixelCatTheme";
+      rev = "main"; # "25e53ef7f881306bf8a342d909257c1bb4662640"; # Just easier to use main?
+      hash = "sha256-EN2e+zdCtpPLZ40SXNQefB3LrbvW9gOWBkhHShlhcs0=";
+    };
+    installPhase = ''
     mkdir -p $out
     cp -r $src/* $out
-  '';
-    
-  # boot.loader.grub.theme = pkgs.stdenv.mkDerivation {
-  #   pname = "distro-grub-theme";
-  #   version = "3.1";
-  #   src = pkgs.fetchFromGitHub {
-  #     owner = "AdisonCavani";
-  #     repo = "distro-grub-themes";
-  #     rev = "v3.1";
-  #     hash = "sha256-ZcoGbbOMDDwjLhsvs77C7G7vINQnprdfI37a9ccrmPs=";
-  #   };
-  #   installPhase = "cp -r customize/nixos $out";
-  # };
+    '';
+    # installPhase = "cp -r customize/nixos $out";
+  };
 
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -98,7 +101,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = false;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = false; # false for disabling the entire gnome desktop environment
 
   services.displayManager.ly.enable = true;
 
@@ -114,11 +117,11 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    # jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    # media-session.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
