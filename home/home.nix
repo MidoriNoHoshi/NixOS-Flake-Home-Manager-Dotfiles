@@ -16,6 +16,8 @@
       GTK_IM_MODULE = "fcitx5";
       QT_IM_MODULE = "fcitx5";
       XMODIFIERS = "@im=fcitx5";
+      GTK_THEME = "TokyoNight-Dark-B-MB";
+      ICON_THEME = "TokyoNight";
     };
   };
 
@@ -26,6 +28,7 @@
     kitty
     cool-retro-term # Literally what it says. Holy shit, I kinda really like this.
 
+    qutebrowser # Keyboard-focused browser with minimal GUI
     brave # Need to find alternative to brave
     tor-browser # Anonymizing overlay network
     firefox
@@ -38,16 +41,22 @@
     dunst
     fuzzel # wofi / rofi alternative for wayland. Seems much nicer
 
+    anki
     obsidian
+    mupdf # Lightweight PDF, XPS, and E-book viewer and toolkit. Contains mutool
     krita
     gimp
     discord
     discordo # Lightweight, feature-rich Discord terminal client
-    nautilus # Default GNOME file manager
-    sushi # Quick previewer for GNOME Nautilus
+    # nautilus # Default GNOME file manager
+    # sushi # Quick previewer for Nautilus
+    #
+    # When using nemo, only use one of these following "nemo" packages. Otherwise there will be an error as both packages collide
+    ranger # Terminal file manager. VIM inspired
+    # lf # ranger inspired terminal file manager. Minimalist and faster. Also way too hard to configure
+    # ueberzugpp # Draws images on terminals using X11/Wayland child windows, sixels, kitty
     qbittorrent
     spotify
-    lollypop # GNOME music player
     steam
     retroarch
     godot3
@@ -55,12 +64,10 @@
 
     mpv # free media player. Prefer over vlc
     celluloid # Basically just mpv
-    vlc # Media player
+    # vlc # Media player
     qimgv # Image viewer
 
     # Utilities / command-line tools
-    oh-my-zsh # Fucking love oh-my-zsh. How to get it to fucking work?
-    git
     lazygit # simple terminal UI for Git Commands 
     gcc # GNU Compiler Collection. Need for a C compiler
     fzf # Fuzzy finder
@@ -71,6 +78,7 @@
     lua # Lua
     luarocks # Lua official package manager
     curl # tool and library for transferring data with URLs
+    wget # tool for retrieving files using HTTP, HTTPS, and FTP
     slurp
     grim
     wl-clipboard
@@ -87,25 +95,34 @@
     kmonad
     notepadqq
     wireshark
-    bibata-cursors
-    tokyo-night-gtk
     # ags # Aylur's GTK Shell
     clamav
     clamtk
     wireguard-tools
     wireguard-ui
   ]);
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
+  gtk = {
+    enable = true;
+    theme = {
+      name = "TokyoNight-Dark-B-MB";
+      package = pkgs.tokyonight-gtk-theme;
     };
-
-    "org/gnome/shell/extensions/user-theme" = {
-      name = "Tokyonight-Dark-B-LB";
+    iconTheme = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
     };
   };
 
+  # When using full GNOME system. This is good.
+  # dconf.settings = {
+  #   "org/gnome/desktop/interface" = {
+  #     color-scheme = "prefer-dark";
+  #   };
+  #
+  #   "org/gnome/shell/extensions/user-theme" = {
+  #     name = "Tokyonight-Dark-B-LB";
+  #   };
+  # };
   programs = {
     home-manager = {
       enable = true;
@@ -121,6 +138,7 @@
         ll = "ls -lah";
         gs = "git status";
         battery = "cat /sys/class/power_supply/BAT0/capacity"; # Checking battery
+        switchFlake = "sudo nixos-rebuild switch --flake .#nemi";
       };
     };
   };

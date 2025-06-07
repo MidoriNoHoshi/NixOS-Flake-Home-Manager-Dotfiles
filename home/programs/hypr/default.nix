@@ -15,10 +15,10 @@
   #test later systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ]; For things like waybar to start properly on login, should uncomment this line.
   wayland.windowManager.hyprland = {
     enable = true;
-    systemdIntegration = true;
+    systemd.enable = true;
     settings = {
       "$terminal" = "kitty"; # How to get it to run cool retro term first?
-      "$fileManager" = "nautilus";
+      "$fileManager" = "nemo";
       "$browser" = "brave";
       "$menu" = "fuzzel";
       "$mainMod" = "SUPER";

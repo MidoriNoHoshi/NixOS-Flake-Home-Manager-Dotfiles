@@ -80,12 +80,35 @@
     };
   };
 
-  services.kmonad = {
-    enable = true;
-    keyboards = {
-      myKMonadOutput = {
-        device = "/dev/input/by-id/usb-Logitech_USB_Receiver-event-kbd";
-        config = builtins.readFile ./default.kbd;
+  services = {
+    kmonad = {
+      enable = true;
+      keyboards = {
+        myKMonadOutput = {
+          device = "/dev/input/by-id/usb-Logitech_USB_Receiver-event-kbd";
+          config = builtins.readFile ./default.kbd;
+        };
+      };
+    };
+    udisks2 = {
+      enable = true;
+    };
+  };
+
+  systemd = {
+    services.battery_warning = {
+      description = "Warns if battery level is getting low";
+      script = "/home/nemi/Dotfiles/Scripts/batteryWarn.sh";
+      serviceConfig = {
+        Type = "oneshot";
+      };
+    };
+    timers.battery_warning = {
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnBootSec = "1min";
+        OnUnitActiveSec = "1min";
+        Unit = "battery_warning.service";
       };
     };
   };
@@ -95,21 +118,21 @@
   enable = true;
   # videoDrivers = [ "nvidia" ];
   # X11 Keymap
-  layout = "us, jp, no, gb";
-  xkbVariant = ""; # Idk, remove the . if it doens't work.
+    xkb = {
+      layout = "us, jp, no, gb";
+    };
   };
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = false;
   services.xserver.desktopManager.gnome.enable = false; # false for disabling the entire gnome desktop environment
-
   services.displayManager.ly.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -137,11 +160,9 @@
       extraGroups = [ "networkmanager" "wheel" ];
     };
   };
-
   security.sudo.wheelNeedsPassword = false;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true; # Allows unfree packages
 
   nix = {
     gc = {
@@ -168,26 +189,39 @@
    home-manager
    hyprland
    hyprpaper
+   nemo-with-extensions # Cinnamon default file manager
+   gvfs # GNOME Virtual File System. Cinnamon and Nautilus needs. For Nautilus, use gnome.gvfs.
    zsh
    oh-my-zsh
+
+   bibata-cursors
+   tokyonight-gtk-theme
 
    fcitx5
    fcitx5-mozc
    fcitx5-configtool
    fcitx5-gtk
-
-   noto-fonts
-   noto-fonts-cjk-sans
-   noto-fonts-cjk-serif
-
-   nerd-fonts._0xproto
-   nerd-fonts.hack
-   nerd-fonts._3270
-   nerd-fonts.mononoki
-   nerd-fonts.jetbrains-mono
-   nerd-fonts.fira-code
-   nerd-fonts.fira-mono
   ];
+  fonts = {
+    # enable = true;
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+
+      nerd-fonts._0xproto
+      nerd-fonts.hack
+      nerd-fonts._3270
+      nerd-fonts.mononoki
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
+      nerd-fonts.fira-mono
+    ];
+    fontconfig = {
+      enable = true;
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
