@@ -85,7 +85,8 @@
       enable = true;
       keyboards = {
         myKMonadOutput = {
-          device = "/dev/input/by-id/usb-Logitech_USB_Receiver-event-kbd";
+          # device = "/dev/input/by-id/usb-Logitech_USB_Receiver-event-kbd";
+          device = "/dev/input/event0";
           config = builtins.readFile ./default.kbd;
         };
       };
@@ -95,23 +96,23 @@
     };
   };
 
-  systemd = {
-    services.battery_warning = {
-      description = "Warns if battery level is getting low";
-      script = "/home/nemi/Dotfiles/Scripts/batteryWarn.sh";
-      serviceConfig = {
-        Type = "oneshot";
-      };
-    };
-    timers.battery_warning = {
-      wantedBy = [ "timers.target" ];
-      timerConfig = {
-        OnBootSec = "1min";
-        OnUnitActiveSec = "1min";
-        Unit = "battery_warning.service";
-      };
-    };
-  };
+  # systemd = {
+  #   services.battery_warning = {
+  #     description = "Warns if battery level is getting low";
+  #     script = "/home/nemi/Dotfiles/Scripts/batteryWarn.sh";
+  #     serviceConfig = {
+  #       Type = "oneshot";
+  #     };
+  #   };
+  #   timers.battery_warning = {
+  #     wantedBy = [ "timers.target" ];
+  #     timerConfig = {
+  #       OnBootSec = "1min";
+  #       OnUnitActiveSec = "1min";
+  #       Unit = "battery_warning.service";
+  #     };
+  #   };
+  # };
 
   # Enable the X11 windowing system.
   services.xserver = {
@@ -190,6 +191,7 @@
    hyprland
    hyprpaper
    nemo-with-extensions # Cinnamon default file manager
+   # nemo-fileroller # Archive manager for nemo file manager
    gvfs # GNOME Virtual File System. Cinnamon and Nautilus needs. For Nautilus, use gnome.gvfs.
    zsh
    oh-my-zsh
@@ -197,10 +199,10 @@
    bibata-cursors
    tokyonight-gtk-theme
 
-   fcitx5
-   fcitx5-mozc
-   fcitx5-configtool
-   fcitx5-gtk
+   # fcitx5
+   # fcitx5-mozc
+   # fcitx5-configtool
+   # fcitx5-gtk
   ];
   fonts = {
     # enable = true;
@@ -217,6 +219,8 @@
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
       nerd-fonts.fira-mono
+      nerd-fonts.departure-mono
+      nerd-fonts.proggy-clean-tt
     ];
     fontconfig = {
       enable = true;

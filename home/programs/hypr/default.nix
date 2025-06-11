@@ -17,14 +17,16 @@
     enable = true;
     systemd.enable = true;
     settings = {
-      "$terminal" = "kitty"; # How to get it to run cool retro term first?
+      # "$terminal" = "cool-retro-term"; # How to get it to run cool retro term first?
+      "$terminal" = "kitty";
       "$fileManager" = "nemo";
-      "$browser" = "brave";
+      "$browser" = "firefox";
       "$menu" = "fuzzel";
       "$mainMod" = "SUPER";
 
       exec-once = [
-      "cool-retro-term"
+      # "cool-retro-term" # Maybe, just maybe not needed?
+      # "anki" # Just gets instantly closed anyway
       "hyprpaper"
       "fcitx5-remote -r"
       "fcitx5 -d --replace"
@@ -133,6 +135,7 @@
 
       bind = [
         "$mainMod, Q, exec, $terminal"
+        "$mainMod, K, exec, kitty" # I realise that I really like using kitty terminal for anything uesful.
         "$mainMod, C, killactive,"
         "$mainMod, I, exec, $browser"
         "$mainMod, E, exec, $fileManager"

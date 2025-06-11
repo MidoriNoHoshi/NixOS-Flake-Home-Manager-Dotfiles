@@ -28,12 +28,20 @@
     kitty
     cool-retro-term # Literally what it says. Holy shit, I kinda really like this.
 
-    qutebrowser # Keyboard-focused browser with minimal GUI
-    brave # Need to find alternative to brave
+    # qutebrowser # Keyboard-focused browser with minimal GUI. Made obsolete by vimium and surfing keys
+    # brave # Need to find alternative to brave
     tor-browser # Anonymizing overlay network
     firefox
     # ladybird # Should try to get into using
     # zen # Experimental browser
+    
+
+    nodejs_latest
+    # Because I kinda suck at configuring Neovim, and trying to do actual programming on neovim just feels weird sometimes, I want to try other code editors. Also the different feel maybe refreshing.
+    # jetbrains.webstorm # Jetbrains webdevelopment IDE. Doesn't seem to 'want' to work.
+    zed-editor # Souped up AI including IDE. Made by creators of tree-sitter and atom.
+    vscode # Visual studio code.
+
     bitwarden-cli # Password manager
     bitwarden-desktop
     bitwarden-menu # Dmenu / rofi frontend for managing bitwarden vaults. Uses the Bitwarden-cli to interact with bitwarden database
@@ -43,9 +51,13 @@
 
     anki
     obsidian
+    # gedit # GNOME text editor
+    notes
+    notepadqq
     mupdf # Lightweight PDF, XPS, and E-book viewer and toolkit. Contains mutool
     krita
     gimp
+    pixelorama # 2D sprite editor made with godot3
     discord
     discordo # Lightweight, feature-rich Discord terminal client
     # nautilus # Default GNOME file manager
@@ -63,7 +75,6 @@
     love
 
     mpv # free media player. Prefer over vlc
-    celluloid # Basically just mpv
     # vlc # Media player
     qimgv # Image viewer
 
@@ -79,11 +90,17 @@
     luarocks # Lua official package manager
     curl # tool and library for transferring data with URLs
     wget # tool for retrieving files using HTTP, HTTPS, and FTP
+    unzip # .zip
+    unrar # .rar
+    webp-pixbuf-loader # Thumbnails for webp
+    libwebp # Tools and library for WebP (tools for converting from .png or .jpg to .webp) Webp more efficient format.
     slurp
     grim
     wl-clipboard
     yt-dlp # video / media extractor
+    gallery-dl
     ffmpeg # multimedia framework
+    ffmpegthumbnailer # Thumbnails for videos
     neofetch
     bc # Basic calculator
     tree #Command for quickly displaying contents of directory, including sub directories.
@@ -93,7 +110,8 @@
 
     #Miscellaneous
     kmonad
-    notepadqq
+    file-roller # GNOME archive manager
+    tesseract # OCR engine
     wireshark
     # ags # Aylur's GTK Shell
     clamav
