@@ -39,7 +39,7 @@
     nodejs_latest
     # Because I kinda suck at configuring Neovim, and trying to do actual programming on neovim just feels weird sometimes, I want to try other code editors. Also the different feel maybe refreshing.
     # jetbrains.webstorm # Jetbrains webdevelopment IDE. Doesn't seem to 'want' to work.
-    zed-editor # Souped up AI including IDE. Made by creators of tree-sitter and atom.
+    # zed-editor # Souped up AI including IDE. Made by creators of tree-sitter and atom.
     vscode # Visual studio code.
 
     bitwarden-cli # Password manager

@@ -34,6 +34,8 @@ elif [ "$status" = "Discharging" ]; then
   statusIcon="󰶹 Discharging"
 elif [ "$status" = "Full" ]; then
   statusIcon="󰽙 Full"
+elif [ "$status" = "Not charging" ]; then
+  statusIcon="󰝷 Not Charging"
 fi
 
 # Just realised, this "string:x-dunst-stack-tag" part just assigns the notificatios "tag". In other, here it just prevents dunst from showing how many times this notification was called. Doesn't actually do anything in terms of the content of the notification.

@@ -116,7 +116,7 @@ services.dunst = {
         override_pause_level = "32";
       };
      urgency_critical = {
-        background = "#222222";
+        background = "#52030b";
         foreground = "#ffffff";
         highlight = "#722ae6, #e4b5cb";
         timeout = "-1";

@@ -96,24 +96,6 @@
     };
   };
 
-  # systemd = {
-  #   services.battery_warning = {
-  #     description = "Warns if battery level is getting low";
-  #     script = "/home/nemi/Dotfiles/Scripts/batteryWarn.sh";
-  #     serviceConfig = {
-  #       Type = "oneshot";
-  #     };
-  #   };
-  #   timers.battery_warning = {
-  #     wantedBy = [ "timers.target" ];
-  #     timerConfig = {
-  #       OnBootSec = "1min";
-  #       OnUnitActiveSec = "1min";
-  #       Unit = "battery_warning.service";
-  #     };
-  #   };
-  # };
-
   # Enable the X11 windowing system.
   services.xserver = {
   enable = true;

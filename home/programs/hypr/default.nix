@@ -32,6 +32,7 @@
       "fcitx5 -d --replace"
       # "hyprctl setcursor Bibata-Modern-Classic 24"
       "dunst"
+      "~/Dotfiles/Scripts/batteryWarn.sh"
       ];
       env = [
       "XCURSOR_THEME, Bibata-Modern-Classic"
@@ -135,7 +136,6 @@
 
       bind = [
         "$mainMod, Q, exec, $terminal"
-        "$mainMod, K, exec, kitty" # I realise that I really like using kitty terminal for anything uesful.
         "$mainMod, C, killactive,"
         "$mainMod, I, exec, $browser"
         "$mainMod, E, exec, $fileManager"
