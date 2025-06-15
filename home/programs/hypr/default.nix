@@ -193,12 +193,12 @@
       ];
 
       bindel = [
-        ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/Dotfiles/Scripts/volume.sh"
-        ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/Dotfiles/Scripts/volume.sh"
+        ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ && ~/Dotfiles/Scripts/volume.sh" # More granualar control over volume.
+        ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/Dotfiles/Scripts/volume.sh"
         ",XF86AudioMute,exec,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ~/Dotfiles/Scripts/volume.sh"
         ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ",XF86MonBrightnessUp,exec,brightnessctl s 10%+ && ~/Dotfiles/Scripts/brightness.sh"
-        ",XF86MonBrightnessDown,exec,brightnessctl s 10%- && ~/Dotfiles/Scripts/brightness.sh"
+        ",XF86MonBrightnessUp,exec,brightnessctl s 5%+ && ~/Dotfiles/Scripts/brightness.sh"
+        ",XF86MonBrightnessDown,exec,brightnessctl s 5%- && ~/Dotfiles/Scripts/brightness.sh"
         ",XF86AudioNext,exec,playerctl next"
         ",XF86AudioPause,exec,playerctl play-pause"
         ",XF86AudioPlay,exec,playerctl play-pause"
