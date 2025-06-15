@@ -2,16 +2,12 @@
   description = "A very basic flake";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable"; # Becomes a pain every 6 months
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable"; # Becomes a pain every 6 months
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-    # kmonad = {
-    #   url = "github:kmonad/kmonad?dir=nix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
   outputs = { self, nixpkgs, home-manager, hyprland, ... }:
@@ -30,6 +26,7 @@
         modules = [
           ./nixos/configuration.nix # The ones in /etc/nixos don't matter much anymore.
           ./nixos/hardware-configuration.nix
+          # ./nixos/clamav.nix # Clamav module.
           hyprland.nixosModules.default
           home-manager.nixosModules.home-manager
           {
@@ -43,20 +40,4 @@
       };
     };
   };
-	#    homeConfigurations = {
-	#      "nemi" = home-manager.lib.homeManagerConfiguration {
-	#        modules = [
-	#   ./home.nix
-	# ];
-	#      };
-	#    };
-	#  };
-	#
-	#  {
-	#
-	#    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-	#
-	#    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
-	#
-	#  };
 }

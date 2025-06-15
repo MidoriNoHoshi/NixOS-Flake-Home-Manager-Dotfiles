@@ -53,7 +53,6 @@
     obsidian
     # gedit # GNOME text editor
     notes
-    notepadqq
     mupdf # Lightweight PDF, XPS, and E-book viewer and toolkit. Contains mutool
     krita
     gimp
@@ -71,6 +70,7 @@
     spotify
     steam
     retroarch
+    waydroid # Android emulator for linux
     godot3
     love
 
@@ -114,8 +114,9 @@
     tesseract # OCR engine
     wireshark
     # ags # Aylur's GTK Shell
-    clamav
-    clamtk
+    # clamav # Clamav doesn't seem to work well for nixos
+    # clamtk
+    android-tools # Includes adb (Android Debug Bridge)
     wireguard-tools
     wireguard-ui
   ]);

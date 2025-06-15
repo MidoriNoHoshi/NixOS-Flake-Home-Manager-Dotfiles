@@ -94,17 +94,14 @@
     udisks2 = {
       enable = true;
     };
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver = {
-  enable = true;
-  # videoDrivers = [ "nvidia" ];
-  # X11 Keymap
-    xkb = {
-      layout = "us, jp, no, gb";
+    xserver = {
+      enable = true; # Enable the X11 windowing system.
+      xkb = {
+        layout = "us, jp, no, gb";
+      };
     };
   };
+
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = false;
@@ -229,6 +226,8 @@
       localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers.
     };
   };
+
+  virtualisation.waydroid.enable = true;
 
   # List services that you want to enable:
 

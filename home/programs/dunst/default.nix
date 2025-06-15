@@ -104,7 +104,7 @@ services.dunst = {
         foreground = "#ffffff";
         # highlight = "#722ae6, #e4b5cb";
         highlight = "#21291c, #83e6aa";
-        timeout = "8";
+        timeout = "3";
       };
      urgency_normal = {
         background = "#222222";
@@ -112,7 +112,7 @@ services.dunst = {
         # highlight = "#722ae6, #e4b5cb";
         highlight = "#21291c, #83e6aa"; #2ae678, #e62a33
  
-        timeout = "8";
+        timeout = "4";
         override_pause_level = "32";
       };
      urgency_critical = {
@@ -129,7 +129,13 @@ services.dunst = {
         frame_color = "#99AAB5";
         timeout = "8";
         icon = "~/Pictures/Logos + svg/Discord/Discord_Symbol_Color/Discord-Symbol-Blurple.png";
-
+      };
+      spotify = {
+        appname = "Spotify";
+        origin = "bottom-center";
+        background = "#212121";
+        foreground = "#1db954"; # Spotify Official color?
+        timeout = "1";
       };
     };
   };
