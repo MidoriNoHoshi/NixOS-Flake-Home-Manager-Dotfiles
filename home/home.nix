@@ -70,7 +70,7 @@
     spotify
     steam
     retroarch
-    waydroid # Android emulator for linux
+    # waydroid # Android emulator for linux
     godot3
     love
 

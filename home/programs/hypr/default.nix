@@ -141,7 +141,7 @@
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating, "
         "$mainMod, R, exec, $menu"
-        "$mainMod, J, togglesplit, " # dwindle
+        # "$mainMod, J, togglesplit, " # dwindle
         ",Print, exec, grim -g \"$(slurp)\" - | wl-copy"
         "CONTROL, Print, exec, grim -g \"$(slurp)\" ~/Pictures/Screenshots/screenshot_$(date +%Y-%m-%d_%H_%S).png"
         ", F9, exec, ~/Dotfiles/Scripts/battery.sh"
@@ -193,7 +193,7 @@
       ];
 
       bindel = [
-        ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ && ~/Dotfiles/Scripts/volume.sh" # More granualar control over volume.
+        ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ --limit 1.2 && ~/Dotfiles/Scripts/volume.sh" # More granualar control over volume.
         ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- && ~/Dotfiles/Scripts/volume.sh"
         ",XF86AudioMute,exec,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ~/Dotfiles/Scripts/volume.sh"
         ",XF86AudioMicMute,exec,wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"

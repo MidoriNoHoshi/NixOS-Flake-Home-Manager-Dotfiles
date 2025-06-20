@@ -227,7 +227,7 @@
     };
   };
 
-  virtualisation.waydroid.enable = true;
+  # virtualisation.waydroid.enable = true; # Need for waydroid to work.
 
   # List services that you want to enable:
 
