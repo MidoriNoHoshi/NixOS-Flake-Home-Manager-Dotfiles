@@ -212,8 +212,8 @@
     };
   };
   home.file.".config/hypr/hyprpaper.conf".text = ''
-preload = ~/Desktop/-kotonoha-no-niva-sad-2606.jpg
-wallpaper = eDP-1, ~/Desktop/-kotonoha-no-niva-sad-2606.jpg
+preload = ~/Desktop/Wallpapers/chill-chill-joirnal/Less_talk..._more_action.webp
+wallpaper = eDP-1, ~/Desktop/Wallpapers/chill-chill-joirnal/Less_talk..._more_action.webp
 ipc = off
     '';
 }
