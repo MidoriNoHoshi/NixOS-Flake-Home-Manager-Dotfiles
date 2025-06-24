@@ -39,5 +39,5 @@ elif [ "$status" = "Not charging" ]; then
 fi
 
 # Just realised, this "string:x-dunst-stack-tag" part just assigns the notificatios "tag". In other, here it just prevents dunst from showing how many times this notification was called. Doesn't actually do anything in terms of the content of the notification.
-dunstify -h string:x-dunst-stack-tag:"$power" -h int:value:"$power" "$statusIcon $icon: $power%"
+dunstify -h string:x-dunst-stack-tag:"$power" -h int:value:"$power" "$(date +"%b %d %a %H:%M")" "$statusIcon $icon: $power%"
 exit 0
