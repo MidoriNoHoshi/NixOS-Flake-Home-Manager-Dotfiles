@@ -70,6 +70,8 @@
     spotify
     steam
     retroarch
+    # minecraft # official minecraft launcher.
+    prismlauncher # open source minecraft launcher. Better for linux systems.
     # waydroid # Android emulator for linux
     godot3
     love
@@ -90,8 +92,9 @@
     luarocks # Lua official package manager
     curl # tool and library for transferring data with URLs
     wget # tool for retrieving files using HTTP, HTTPS, and FTP
-    unzip # .zip
-    unrar # .rar
+    # unzip # .zip. Not great for non-UTF8 files. unrar for .rar files.
+    unar # Open source file extractor that can do most file types.
+    p7zip # New p7zip fork. Replacement for 7-zip open source file archive.
     webp-pixbuf-loader # Thumbnails for webp
     libwebp # Tools and library for WebP (tools for converting from .png or .jpg to .webp) Webp more efficient format.
     slurp
